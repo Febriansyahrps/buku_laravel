@@ -1,68 +1,25 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel</title>
-
-<!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <title>Input</title>
 </head>
 <body>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card mt-5">
-                        <div class="card-body">
-                            <br/>
+    <h3>Input Buku</h3>
 
-                            {{-- menampilkan error validasi --}}
-                            @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
+    <a href="/buku"> Kembali</a>
+    
+    <br/>
+    <br/>
 
-                            <br/>
-                             <!-- form validasi -->
-                            <form action="/proses" method="post">
-                                {{ csrf_field() }}
+    <form action="/buku/data" method="post">
+        {{ csrf_field() }}
+        Judul <input type="text" name="judul" required="required"> <br/>
+        Penerbit <input type="text" name="penerbit" required="required"> <br/>
+        Tahun Terbit <input type="year" name="tahun_terbit" required="required"> <br/>
+        Pengarang <input type="text" name="pengarang" required="required"> <br/>
+        <input type="submit" value="Simpan Data">
+    </form>
 
-                                <div class="form-group">
-                                    <label for="id">id</label>
-                                    <input class="form-control" type="text" name="id" value="{{ old('id') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="judul">judul</label>
-                                    <input class="form-control" type="text" name="judul" value="{{ old('judul') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="penerbit">penerbit</label>
-                                    <input class="form-control" type="text" name="penerbit" value="{{ old('penerbit') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="tahun_terbit">tahun_terbit</label>
-                                    <input class="form-control" type="text" name="tahun_terbit" value="{{ old('tahun_terbit') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pengarang">pengarang</label>
-                                    <input class="form-control" type="text" name="pengarang" value="{{ old('pengarang') }}">
-                                </div>
-                                <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" value="Proses">
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-   
 </body>
 </html>
