@@ -59,3 +59,4 @@ class BukuController extends Controller
 	}
 
 }
+
